@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Diagnostico de funil e plano de originacao de franqueados — ODARA Lifestyle. Documento de trabalho.">
+<meta name="theme-color" content="#0A1416">
+<title>Diagnóstico de Funil e Plano de Originação — Isabella Odara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+:root{
+  /* --- paleta extraída dos sites da Isabella: teal petróleo #006975 (franquiasemerros,
+     origem-pressell e odaralifestyle), teal claro #1DB0BC, nude #E6BAA8, cremes #F7F4EF / #F0E8DB --- */
+  --ink:#0E1B1D; --panel:#123035; --panel2:#18393E;
+  --cream:#F7F4EF; --white:#ffffff;
+  --tl:#006975; --tl-l:#4FC3CE;          /* teal: primário — claro para fundo escuro */
+  --nu:#A9674C;  --nu-l:#E6BAA8;         /* nude/terracota: secundário */
+  --ink-soft:#33474A; --mut:#8FA3A6; --mut2:#6B7F82;
+  --line-dark:rgba(255,255,255,.11); --line-light:rgba(14,27,29,.13);
+  --display:'Fraunces',Georgia,serif;
+  --body:'Montserrat',-apple-system,sans-serif;
+}
+
+
+.slide{
+  width:1280px; height:720px; position:relative; overflow:hidden;
+  background:var(--cream); color:var(--ink); page-break-after:always; break-after:page;
+  padding:44px 64px 46px; display:flex; flex-direction:column;
+  --acc:var(--tl); --acc2:var(--nu);
+  --txt:var(--ink); --txt-hi:var(--ink); --txt-soft:var(--ink-soft);
+  --surface:var(--white); --line:var(--line-light); --mutd:var(--mut2);
+}
+.slide:last-child{ page-break-after:auto; }
+@media screen{ .slide{ margin:0 auto 26px; box-shadow:0 14px 50px rgba(0,0,0,.5); } }
+
+.slide.dark, .slide.panel{
+  color:var(--cream);
+  --acc:var(--tl-l); --acc2:var(--nu-l);
+  --txt:var(--cream); --txt-hi:var(--white); --txt-soft:#B3C4C6;
+  --surface:var(--panel2); --line:var(--line-dark); --mutd:var(--mut);
+}
+.slide.dark{ background:var(--ink); }
+.slide.panel{ background:var(--panel); }
+
+h1,h2,h3,h4,h5{ font-family:var(--display); font-weight:600; letter-spacing:-.008em; line-height:1.08; }
+em.s{ font-style:italic; font-weight:500; }
+.gd{ color:var(--acc); } .nu{ color:var(--acc2); }
+
+/* head / foot */
+.s-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+.tag{ font-family:var(--body); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--acc); display:flex; align-items:center; gap:9px; }
+.tag::before{ content:''; width:22px; height:2px; background:var(--acc); display:block; }
+.num{ font-family:var(--body); font-size:11px; font-weight:600; letter-spacing:.16em; color:var(--mutd); }
+.foot{ position:absolute; left:64px; right:64px; bottom:20px; display:flex; justify-content:space-between;
+  align-items:center; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--mutd);
+  border-top:1px solid var(--line); padding-top:11px; font-weight:500; }
+
+h2.t{ font-size:50px; margin-bottom:10px; color:var(--txt-hi); }
+h2.t.sm{ font-size:40px; }
+.lead{ font-size:15px; line-height:1.6; color:var(--txt-soft); max-width:980px; font-weight:400; }
+.lead strong{ font-weight:600; color:var(--txt-hi); }
+.rule{ width:56px; height:2px; background:var(--acc); margin:13px 0 16px; }
+.body-wrap{ flex:1; display:flex; flex-direction:column; min-height:0; }
+
+/* COVER */
+.cover{ justify-content:center; padding:0 90px; }
+.cover .kick{ font-family:var(--body); font-size:11px; font-weight:600; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--acc2); margin-bottom:26px; }
+.cover h1{ font-size:86px; line-height:.98; color:var(--white); margin-bottom:22px; letter-spacing:-.02em; }
+.cover h1 em.s{ color:var(--acc); }
+.cover .sub{ font-size:16px; line-height:1.58; color:#B3C4C6; max-width:900px; font-weight:400; }
+.cover .meta{ display:flex; gap:46px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line-dark); }
+.cover .meta div span{ display:block; font-family:var(--body); font-size:9.5px; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--mut2); margin-bottom:7px; }
+.cover .meta div strong{ font-size:13px; color:var(--cream); font-weight:500; }
+
+/* SECTION DIVIDER */
+.slide.sec{ justify-content:center; }
+.sec .st{ font-family:var(--body); font-size:11px; font-weight:700; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--acc2); margin-bottom:22px; }
+.sec h2{ font-size:74px; line-height:1; color:var(--txt-hi); margin-bottom:18px; letter-spacing:-.022em; }
+.sec h2 em.s{ color:var(--acc); }
+.sec .sl{ font-size:15.5px; line-height:1.62; color:var(--txt-soft); max-width:780px; }
+.sec .sm2{ margin-top:32px; padding-top:20px; border-top:1px solid var(--line); font-size:10.5px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--mutd); font-weight:600; }
+
+/* GRIDS + CARDS */
+.g2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.g3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.g4{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.gr{ flex:1 1 0; min-height:0; }
+.gr2{ flex:2 1 0; min-height:0; }
+.gr > .card, .gr > .box, .gr > .flow-s, .gr > .fase-c, .gr > .stat,
+.gr2 > .card, .gr2 > .box{ display:flex; flex-direction:column; justify-content:center; }
+.chk.gr, .idx.gr{ align-content:space-between; }
+.steps.gr{ justify-content:space-between; }
+.gr > .spread{ display:flex; flex-direction:column; justify-content:space-between; }
+
+.card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:17px 17px 18px; }
+.card .ct{ font-family:var(--body); font-size:10px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--acc); margin-bottom:10px; }
+.card h4{ font-size:21px; font-weight:600; margin-bottom:8px; color:var(--txt-hi); line-height:1.12; }
+.card p{ font-size:12.5px; line-height:1.55; color:var(--txt-soft); }
+.card p b{ color:var(--txt-hi); font-weight:600; }
+.card p + p{ margin-top:7px; }
+.card ul{ list-style:none; margin-top:9px; }
+.card ul li{ font-size:12px; line-height:1.48; color:var(--txt-soft); padding-left:14px; position:relative; margin-bottom:6px; }
+.card ul li::before{ content:''; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%; background:var(--acc); }
+.card ul li b{ color:var(--txt-hi); font-weight:600; }
+.card.nu2 .ct{ color:var(--acc2); } .card.nu2 ul li::before{ background:var(--acc2); }
+.card.hi{ background:var(--ink); border-color:transparent; --txt-hi:var(--white); --txt-soft:#B3C4C6; --acc:var(--tl-l); }
+.card.teal{ background:var(--tl); border-color:transparent; --txt-hi:#fff; --txt-soft:rgba(255,255,255,.93); }
+.card.teal .ct{ color:rgba(255,255,255,.72); }
+.card.teal ul li::before{ background:rgba(255,255,255,.8); }
+.card.terra{ background:var(--nu); border-color:transparent; --txt-hi:#fff; --txt-soft:rgba(255,255,255,.93); }
+.card.terra .ct{ color:rgba(255,255,255,.72); }
+.card.terra ul li::before{ background:rgba(255,255,255,.8); }
+.dense .card{ padding:14px 14px 15px; }
+.dense .card h4{ font-size:18px; margin-bottom:6px; }
+.dense .card p{ font-size:11.6px; line-height:1.46; }
+.dense .card .ct{ margin-bottom:8px; }
+.dense .card ul li{ font-size:11.2px; line-height:1.4; margin-bottom:5px; }
+
+/* PILL */
+.pill{ display:inline-block; font-family:var(--body); font-size:9.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; padding:5px 11px; border-radius:99px; background:rgba(0,105,117,.12); color:var(--acc); }
+.slide.dark .pill, .slide.panel .pill{ background:rgba(79,195,206,.14); }
+
+/* STATS */
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.stat{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 18px 20px; }
+.stat .k{ font-family:var(--body); font-size:9.5px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--mutd); margin-bottom:9px; }
+.stat .v{ font-family:var(--display); font-size:46px; font-weight:600; color:var(--acc); line-height:1;
+  letter-spacing:-.025em; margin-bottom:10px; }
+.stat p{ font-size:11.8px; line-height:1.5; color:var(--txt-soft); }
+.stat p b{ color:var(--txt-hi); font-weight:600; }
+.stat.terra{ background:var(--nu); border-color:transparent; --txt-soft:rgba(255,255,255,.92); }
+.stat.terra .v{ color:#fff; } .stat.terra .k{ color:rgba(255,255,255,.7); }
+.stat.terra p b{ color:#fff; }
+
+/* FLOW */
+.flow{ display:flex; align-items:stretch; gap:0; }
+.flow-s{ flex:1; background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:14px 14px 16px; position:relative; }
+.flow-s b{ display:block; font-family:var(--body); font-size:9.5px; font-weight:700;
+  letter-spacing:.16em; color:var(--acc); margin-bottom:7px; }
+.flow-s h5{ font-size:17px; font-weight:600; margin-bottom:5px; color:var(--txt-hi); line-height:1.14; }
+.flow-s p{ font-size:11px; line-height:1.46; color:var(--txt-soft); }
+.flow-s.dead{ border-color:rgba(169,103,76,.45); background:rgba(169,103,76,.07); }
+.slide.dark .flow-s.dead, .slide.panel .flow-s.dead{ border-color:rgba(230,186,168,.34); background:rgba(230,186,168,.07); }
+.flow-s.dead b{ color:var(--acc2); }
+.arw{ flex:none; width:22px; display:flex; align-items:center; justify-content:center;
+  font-size:14px; color:var(--acc); font-weight:700; }
+
+/* TABLE */
+table{ width:100%; border-collapse:collapse; font-size:11.5px; }
+th{ font-family:var(--body); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  text-align:left; padding:9px 10px; color:var(--acc); border-bottom:1.5px solid var(--acc); white-space:nowrap; }
+td{ padding:8.5px 10px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.42; color:var(--txt-soft); }
+td b{ color:var(--txt-hi); font-weight:600; }
+td.hd{ font-family:var(--body); font-weight:700; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--mutd); white-space:nowrap; }
+table.tight td{ padding:5.6px 8px; font-size:10.8px; line-height:1.38; }
+table.tight th{ padding:6px 8px; font-size:8.5px; }
+
+/* QUOTE / BIG */
+.big{ font-family:var(--display); font-size:50px; font-weight:600; line-height:1.1; letter-spacing:-.016em; color:var(--txt-hi); }
+.big em.s{ color:var(--acc); }
+.big.sm{ font-size:40px; }
+
+/* SPLIT / BOX */
+.split{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.box{ border:1px solid var(--line); border-radius:12px; padding:18px; }
+.box.ok{ border-color:rgba(0,105,117,.4); background:rgba(0,105,117,.055); }
+.box.no{ border-color:rgba(169,103,76,.4); background:rgba(169,103,76,.055); }
+.slide.dark .box.ok, .slide.panel .box.ok{ border-color:rgba(79,195,206,.34); background:rgba(79,195,206,.06); }
+.slide.dark .box.no, .slide.panel .box.no{ border-color:rgba(230,186,168,.3); background:rgba(230,186,168,.06); }
+.box h4{ font-size:19px; margin-bottom:11px; display:flex; align-items:center; gap:9px; color:var(--txt-hi); }
+.box.ok h4{ color:var(--tl); } .box.no h4{ color:var(--nu); }
+.slide.dark .box.ok h4, .slide.panel .box.ok h4{ color:var(--tl-l); }
+.slide.dark .box.no h4, .slide.panel .box.no h4{ color:var(--nu-l); }
+.box li{ font-size:12px; line-height:1.52; color:var(--txt-soft); padding-left:16px; position:relative;
+  margin-bottom:8px; list-style:none; }
+.box li b{ color:var(--txt-hi); font-weight:600; }
+.box.ok li::before{ content:'✓'; position:absolute; left:0; color:var(--tl); font-weight:700; font-size:11px; }
+.box.no li::before{ content:'✕'; position:absolute; left:0; color:var(--nu); font-weight:700; font-size:11px; }
+.slide.dark .box.ok li::before, .slide.panel .box.ok li::before{ color:var(--tl-l); }
+.slide.dark .box.no li::before, .slide.panel .box.no li::before{ color:var(--nu-l); }
+
+.note{ margin-top:auto; padding:11px 16px; background:rgba(0,105,117,.085); border-left:3px solid var(--acc);
+  border-radius:0 8px 8px 0; font-size:12.5px; line-height:1.54; color:var(--txt-soft); }
+.slide.dark .note, .slide.panel .note{ background:rgba(79,195,206,.09); }
+.note b{ color:var(--acc); font-weight:600; }
+.note.nu2{ background:rgba(169,103,76,.09); border-left-color:var(--acc2); }
+.slide.dark .note.nu2, .slide.panel .note.nu2{ background:rgba(230,186,168,.09); }
+.note.nu2 b{ color:var(--acc2); }
+.note.tight{ padding:9px 14px; font-size:11.6px; line-height:1.48; }
+
+/* ÍNDICE */
+.idx{ display:grid; grid-template-columns:1fr 1fr; gap:0 60px; margin-top:4px; }
+.idx-i{ display:flex; gap:16px; padding:10px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+.idx-i b{ font-family:var(--body); font-size:11px; font-weight:700; color:var(--acc); letter-spacing:.1em; width:24px; flex:none; }
+.idx-i span{ font-family:var(--display); font-size:17px; font-weight:600; color:var(--txt-hi); }
+.idx-i i{ font-style:normal; font-size:10.5px; color:var(--mutd); margin-left:auto; text-align:right; }
+
+/* CITAÇÃO LITERAL */
+.bio{ font-family:var(--body); font-size:12.5px; line-height:1.68; color:var(--cream);
+  background:var(--ink); border-radius:9px; padding:14px 15px; }
+.bio b{ font-weight:700; color:var(--tl-l); }
+.bio i{ font-style:normal; color:var(--mut); }
+.bio.lt{ background:rgba(14,27,29,.05); color:var(--ink-soft); }
+.bio.lt b{ color:var(--tl); }
+.bio.lt i{ color:var(--mut2); }
+
+/* DUAS COLUNAS COMPARADAS */
+.jan{ display:grid; grid-template-columns:1fr 88px 1fr; gap:0; align-items:stretch; margin-top:10px; }
+.jan-c{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px 20px; }
+.jan-c .jt{ font-family:var(--body); font-size:10px; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--acc); margin-bottom:8px; }
+.jan-c h4{ font-size:24px; margin-bottom:3px; color:var(--txt-hi); }
+.jan-c .age{ font-family:var(--body); font-size:10.5px; font-weight:600; letter-spacing:.12em;
+  color:var(--mutd); text-transform:uppercase; margin-bottom:12px; }
+.jan-c li{ list-style:none; font-size:12px; line-height:1.46; color:var(--txt-soft); padding-left:14px;
+  position:relative; margin-bottom:7px; }
+.jan-c li::before{ content:''; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%; background:var(--acc); }
+.jan-c li b{ color:var(--txt-hi); font-weight:600; }
+.jan-c.b{ --acc:var(--nu); } .slide.dark .jan-c.b, .slide.panel .jan-c.b{ --acc:var(--nu-l); }
+.jan-m{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; }
+.jan-m .lnk{ width:1px; flex:1; background:var(--line); }
+.jan-m .dot{ width:68px; height:68px; border-radius:50%; background:var(--acc); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-family:var(--body); font-size:8.5px;
+  font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-align:center; line-height:1.25; padding:8px; }
+.slide.dark .jan-m .dot, .slide.panel .jan-m .dot{ color:var(--ink); }
+
+/* CHECKLIST NUMERADO */
+.chk{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:11px 20px; margin-top:6px; }
+.chk-i{ display:flex; gap:11px; align-items:baseline; padding:9px 0; border-bottom:1px solid var(--line); }
+.chk-i b{ font-family:var(--body); font-size:11px; font-weight:700; color:var(--acc);
+  width:18px; flex:none; font-variant-numeric:tabular-nums; }
+.chk-i span{ font-size:12px; line-height:1.44; color:var(--txt-soft); }
+.chk-i span i{ font-style:normal; color:var(--txt-hi); font-weight:600; }
+
+/* PASSOS */
+.steps{ display:flex; flex-direction:column; gap:9px; }
+.step{ display:flex; gap:14px; align-items:flex-start; background:var(--surface); border:1px solid var(--line);
+  border-radius:10px; padding:12px 15px; }
+.step b{ font-family:var(--display); font-size:22px; font-weight:600; color:var(--acc); line-height:1;
+  width:24px; flex:none; }
+.step div h5{ font-size:15px; font-weight:600; color:var(--txt-hi); margin-bottom:3px; }
+.step div p{ font-size:11.8px; line-height:1.48; color:var(--txt-soft); }
+.step div p b{ font-family:var(--body); font-size:11.8px; color:var(--txt-hi); font-weight:600; width:auto; }
+
+/* FASES */
+.fase{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.fase-c{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 16px 17px;
+  display:flex; flex-direction:column; }
+.fase-c .fh{ font-family:var(--body); font-size:9.5px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--acc); margin-bottom:6px; }
+.fase-c h4{ font-size:20px; margin-bottom:10px; color:var(--txt-hi); }
+.fase-c li{ list-style:none; font-size:11.5px; line-height:1.45; color:var(--txt-soft);
+  padding-left:14px; position:relative; margin-bottom:7px; }
+.fase-c li::before{ content:''; position:absolute; left:0; top:6px; width:5px; height:5px;
+  border-radius:50%; background:var(--acc); }
+.fase-c li b{ color:var(--txt-hi); font-weight:600; }
+
+
+/* Shell web — envolve os slides 1280x720 sem alterar o design.
+   Paleta herdada dos sites da Isabella: teal petroleo #006975 / teal claro #4FC3CE /
+   nude #E6BAA8 / creme #F7F4EF. Mundo visual unico (escuro) porque os slides
+   alternam claro e escuro por desenho editorial. */
+:root{ --sc:1; --shell-bg:#0A1416; --shell-line:rgba(255,255,255,.10); }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } *{ transition:none!important; } }
+body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--shell-bg);
+  color:#F7F4EF; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+.rail{ position:sticky; top:0; z-index:60; background:rgba(10,20,22,.88);
+  backdrop-filter:blur(14px) saturate(1.25); -webkit-backdrop-filter:blur(14px) saturate(1.25);
+  border-bottom:1px solid var(--shell-line); }
+.rail-in{ max-width:1280px; margin:0 auto; padding:0 22px; height:56px; display:flex; align-items:center; gap:22px; }
+.mark{ font-family:'Fraunces',Georgia,serif; font-size:19px; font-weight:600; letter-spacing:.01em;
+  color:#F7F4EF; white-space:nowrap; }
+.mark em{ font-style:italic; color:#4FC3CE; }
+.rail nav{ display:flex; gap:4px; margin-left:auto; }
+.rail a{ font-family:'Montserrat',sans-serif; font-size:11px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:#8FA3A6; text-decoration:none; padding:7px 12px; border-radius:99px;
+  transition:color .18s, background .18s; white-space:nowrap; }
+.rail a:hover, .rail a:focus-visible{ color:#F7F4EF; background:rgba(255,255,255,.07); outline:none; }
+.rail a:focus-visible{ box-shadow:0 0 0 2px #006975; }
+.prog{ position:absolute; left:0; bottom:-1px; height:2px; background:#4FC3CE; width:0; }
+
+.hero{ max-width:1280px; margin:0 auto; padding:84px 22px 60px; }
+.eyebrow{ font-family:'Montserrat',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.26em;
+  text-transform:uppercase; color:#E6BAA8; margin-bottom:26px; }
+.hero h1{ font-family:'Fraunces',Georgia,serif; font-weight:600; letter-spacing:-.022em; line-height:1.0;
+  font-size:clamp(44px,8vw,96px); text-wrap:balance; margin-bottom:24px; color:#fff; }
+.hero h1 em{ font-style:italic; color:#4FC3CE; }
+.hero p{ font-size:clamp(15px,1.9vw,18px); line-height:1.62; color:#B3C4C6; max-width:64ch; }
+.hero-meta{ display:flex; flex-wrap:wrap; gap:14px 44px; margin-top:42px; padding-top:26px;
+  border-top:1px solid var(--shell-line); }
+.hero-meta div span{ display:block; font-family:'Montserrat',sans-serif; font-size:9.5px; letter-spacing:.18em;
+  text-transform:uppercase; color:#6B7F82; margin-bottom:7px; }
+.hero-meta div strong{ font-size:14px; font-weight:500; color:#F7F4EF; }
+
+.deck{ max-width:1280px; margin:0 auto; padding:0 22px 30px; }
+.stage{ width:100%; }
+.wrap{ width:100%; height:calc(720px * var(--sc)); margin-bottom:calc(20px * var(--sc) + 6px); position:relative; }
+.deck .slide{ color:var(--ink); transform:scale(var(--sc)); transform-origin:top left;
+  margin:0 !important; border-radius:calc(10px / var(--sc)); box-shadow:0 12px 40px rgba(0,0,0,.5); }
+.deck .slide.dark, .deck .slide.panel{ color:var(--cream); }
+.wrap .sn{ position:absolute; right:0; bottom:-19px; font-family:'Montserrat',sans-serif;
+  font-size:9.5px; letter-spacing:.16em; color:#4E5F61; font-variant-numeric:tabular-nums; }
+
+.foot-web{ max-width:1280px; margin:0 auto; padding:44px 22px 70px; border-top:1px solid var(--shell-line);
+  display:flex; flex-wrap:wrap; gap:16px 40px; align-items:baseline; }
+.foot-web p{ font-size:12.5px; color:#6B7F82; line-height:1.6; }
+.foot-web p b{ color:#B3C4C6; font-weight:600; }
+.top{ margin-left:auto; font-family:'Montserrat',sans-serif; font-size:10.5px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; color:#8FA3A6; text-decoration:none;
+  border:1px solid var(--shell-line); padding:9px 16px; border-radius:99px; transition:.18s; }
+.top:hover, .top:focus-visible{ color:#F7F4EF; border-color:#006975; outline:none; }
+
+@media print{
+  @page{ size:1280px 720px; margin:0; }
+  .rail, .hero, .foot-web, .wrap .sn{ display:none !important; }
+  .deck{ max-width:none; padding:0; }
+  .wrap{ height:auto; margin:0; }
+  .deck .slide{ transform:none !important; border-radius:0; box-shadow:none;
+    page-break-after:always; break-after:page; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="rail">
+  <div class="rail-in">
+    <div class="mark">Isabella <em>Odara</em></div>
+    <nav><a href="#doc">Ver o documento</a></nav>
+  </div>
+  <div class="prog"></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">Diagnóstico de funil · Originação de franqueados · Plano de 90 dias · 2026</div>
+    <h1>O curso não é o <em>produto</em>.</h1>
+    <p>Você tem um ativo de R$ 480 mil e dois funis que não se falam. Este documento mostra por onde o
+    dinheiro está vazando hoje, por que o treinamento de R$ 98 vale muito mais como máquina de originar
+    franqueados do que como receita, e o que precisa ser corrigido — em ordem — antes de subir o
+    primeiro real em anúncio.</p>
+    <div class="hero-meta">
+      <div><span>Empresária</span><strong>Isabella Barros · ODARA Lifestyle</strong></div>
+      <div><span>Analisados</span><strong>Perfil + 4 páginas</strong></div>
+      <div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div>
+      <div><span>Extensão</span><strong>28 slides</strong></div>
+    </div>
+  </section>
+  <div class="deck" id="doc"><div class="stage">
+<div class="wrap"><section class="slide dark cover">
+  <div class="kick">Diagnóstico de funil · Originação de franqueados · Plano de 90 dias</div>
+  <h1>O curso não é<br>o <em class="s">produto</em>.</h1>
+  <div class="sub">Você tem um ativo de R$ 480 mil e dois funis que não se falam. Este documento mostra por onde o dinheiro está vazando hoje, por que o treinamento de R$ 98 vale muito mais como máquina de originar franqueados do que como receita, e o que precisa ser corrigido — em ordem — antes de subir o primeiro real em anúncio.</div>
+  <div class="meta">
+    <div><span>Empresária</span><strong>Isabella Barros · ODARA Lifestyle</strong></div>
+    <div><span>Analisados</span><strong>Perfil + 4 páginas</strong></div>
+    <div><span>Preparado por</span><strong>Felipe Cavalcanti</strong></div>
+    <div><span>Versão</span><strong>01 · para conversa</strong></div>
+  </div>
+  <div class="foot"><span>Diagnóstico de Funil e Plano de Originação</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">01 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Escopo</div><div class="num">02</div></div>
+  <h2 class="t">Três perguntas, um documento.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="g3 gr">
+      <div class="card">
+        <div class="ct">Pergunta 1</div>
+        <h4>O franquiasemerros vende franquia?</h4>
+        <p><b>Não.</b> Ele vende um treinamento de R$ 98 no Kiwify sobre como escolher uma franquia — e em nenhum momento faz a ponte para a ODARA.</p>
+        <p>Isso não é um defeito de copy. É um <b>elo faltando no negócio</b>.</p>
+      </div>
+      <div class="card">
+        <div class="ct">Pergunta 2</div>
+        <h4>Dá para rodar tráfego para a lista da empresa?</h4>
+        <p>Dá, e deve. Mas <b>não com a oferta que parece óbvia</b>.</p>
+        <p>Quem já pediu informação de franquia é o público mais valioso que existe aqui — e o mais fácil de queimar com o anúncio errado.</p>
+      </div>
+      <div class="card">
+        <div class="ct">Pergunta 3</div>
+        <h4>O funil do ORIGEM está certo?</h4>
+        <p>A estrutura está. <b>O lugar de cada peça, não.</b></p>
+        <p>Hoje são quatro páginas até o checkout — e nenhuma delas guarda um e-mail sequer.</p>
+      </div>
+    </div>
+    <div class="note"><b>O que este documento não faz:</b> não define preço de franquia, não reescreve a COF e não substitui a validação jurídica sobre projeção de faturamento. Ele trata de estrutura de funil, originação de lead qualificado e escopo de mídia paga.</div>
+  </div>
+  <div class="foot"><span>Escopo</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">02 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Índice</div><div class="num">03</div></div>
+  <h2 class="t sm">O caminho do documento.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="idx gr">
+      <div class="idx-i"><b>01</b><span>Escopo</span><i>02</i></div>
+      <div class="idx-i"><b>10</b><span>As correções do franquiasemerros</span><i>13</i></div>
+      <div class="idx-i"><b>02</b><span>Diagnóstico dos ativos</span><i>04</i></div>
+      <div class="idx-i"><b>11</b><span>Preço como filtro</span><i>14</i></div>
+      <div class="idx-i"><b>03</b><span>O mapa dos dois funis</span><i>05</i></div>
+      <div class="idx-i"><b>12</b><span>O uso correto da lista</span><i>15</i></div>
+      <div class="idx-i"><b>04</b><span>O defeito nº 1: ninguém captura</span><i>06</i></div>
+      <div class="idx-i"><b>13</b><span>Campanhas e criativos</span><i>16 – 17</i></div>
+      <div class="idx-i"><b>05</b><span>A conta que reorganiza tudo</span><i>07</i></div>
+      <div class="idx-i"><b>14</b><span>A métrica de decisão</span><i>18</i></div>
+      <div class="idx-i"><b>06</b><span>A tese: originação, não receita</span><i>08 – 09</i></div>
+      <div class="idx-i"><b>15</b><span>O gargalo comercial</span><i>19</i></div>
+      <div class="idx-i"><b>07</b><span>A objeção fatal</span><i>10</i></div>
+      <div class="idx-i"><b>16</b><span>O funil do ORIGEM</span><i>21 – 23</i></div>
+      <div class="idx-i"><b>08</b><span>Dois públicos, um perfil</span><i>11</i></div>
+      <div class="idx-i"><b>17</b><span>Instagram e bio</span><i>24</i></div>
+      <div class="idx-i"><b>09</b><span>Trilho A — Franquia</span><i>12</i></div>
+      <div class="idx-i"><b>18</b><span>Plano de 90 dias e pendências</span><i>25 – 28</i></div>
+    </div>
+    <div class="note nu2">A ordem importa. Os slides 04 a 11 mostram <b>o que está acontecendo</b>. Os slides 12 a 19 tratam do <b>trilho da franquia</b> — onde está o dinheiro. Os slides 20 a 24 tratam do <b>ORIGEM e do perfil</b>. Os slides 25 a 28 são <b>execução</b>.</div>
+  </div>
+  <div class="foot"><span>Índice</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">03 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Diagnóstico</div><div class="num">04</div></div>
+  <h2 class="t sm">O que está montado hoje.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <table class="tight gr">
+      <tr><th style="width:24%">Ativo</th><th style="width:42%">O que é de fato</th><th style="width:15%">Ticket</th><th>Captura contato?</th></tr>
+      <tr><td><b>@isabella.odara</b><br>57,2 mil seguidores</td><td>Founder, franqueadora e infoprodutora convivendo no mesmo perfil. Bio: <i>“Founder e Franqueadora · Infoprodutora”</i>.</td><td><b>—</b></td><td>Link da bio aponta para o ORIGEM</td></tr>
+      <tr><td><b>franquia.odaralifestyle.com.br</b></td><td>Portal oficial da franquia. Promessa de até R$ 200 mil/mês. Formulário pede apenas a faixa de capital.</td><td><b>R$ 480 mil</b><br>taxa R$ 85 mil</td><td>Sim — mas raso</td></tr>
+      <tr><td><b>franquiasemerros.com.br</b></td><td>Treinamento sobre como escolher franquia. Matriz FRANQ®. Checkout Kiwify. <b>Não menciona a ODARA em nenhum ponto.</b></td><td><b>R$ 98</b></td><td><b>Nenhuma</b></td></tr>
+      <tr><td><b>origem-pressell</b><br>→ aula → vendas</td><td>ORIGEM®. Quatro páginas até o checkout. De R$ 497 por R$ 197,90, garantia de 7 dias.</td><td><b>R$ 197,90</b></td><td><b>Nenhuma</b> — nem na aula “gratuita”</td></tr>
+    </table>
+    <div class="note nu2">Dois negócios, quatro páginas, <b>zero lista própria</b>. Todo visitante que não compra no primeiro contato é perdido de forma definitiva — e volta a custar dinheiro se você quiser falar com ele de novo.</div>
+  </div>
+  <div class="foot"><span>Diagnóstico</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">04 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">O mapa</div><div class="num">05</div></div>
+  <h2 class="t sm">Para onde o público vai hoje.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div style="margin-bottom:8px" class="pill">Trilho A · Franquia</div>
+    <div class="flow" style="flex:1 1 0; min-height:0; margin-bottom:18px">
+      <div class="flow-s"><b>ORIGEM DO CLIQUE</b><h5>Bio ou anúncio</h5><p>Público frio, sem histórico.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>PÁGINA ÚNICA</b><h5>franquiasemerros</h5><p>Texto longo, sem vídeo, sem prova e sem formulário.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>CHECKOUT</b><h5>Kiwify · R$ 98</h5><p>Compra concluída e o funil termina aqui.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s dead"><b>DEPOIS</b><h5>Nada</h5><p>Nenhuma ponte para a franquia. O lead qualificado sai e some.</p></div>
+    </div>
+    <div style="margin-bottom:8px" class="pill">Trilho B · ORIGEM</div>
+    <div class="flow" style="flex:1 1 0; min-height:0; margin-bottom:16px">
+      <div class="flow-s"><b>ETAPA 1</b><h5>Pressell</h5><p>Só texto. Nenhum vídeo, nenhum cadastro.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>ETAPA 2</b><h5>Aula gratuita</h5><p>Abre direto, sem pedir e-mail. Urgência de página perene.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>ETAPA 3</b><h5>Página de vendas</h5><p>Oferta completa em uma terceira página.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>ETAPA 4</b><h5>Checkout · R$ 197,90</h5><p>Quarto clique. Quem não comprou não deixou rastro.</p></div>
+    </div>
+    <div class="note"><b>O denominador comum:</b> em nenhum dos dois trilhos existe um campo de e-mail ou WhatsApp. Os dois funis terminam em “fim” para quem não compra na primeira visita.</div>
+  </div>
+  <div class="foot"><span>O mapa</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">05 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Defeito nº 1</div><div class="num">06</div></div>
+  <div class="big">Uma aula “gratuita” que não pede<br><em class="s">e-mail</em> não é uma isca. É um custo.</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="g3 gr dense">
+      <div class="card">
+        <div class="ct">O que acontece hoje</div>
+        <h4>O contato nunca é registrado</h4>
+        <p>A aula do ORIGEM abre sem cadastro. A página do treinamento não tem formulário nenhum.</p>
+        <p>Quem assiste, considera e não compra <b>desaparece</b> — sem e-mail, sem WhatsApp e sem evento de lead confiável no pixel.</p>
+      </div>
+      <div class="card terra">
+        <div class="ct">O que isso custa</div>
+        <h4>Você paga duas vezes pelo mesmo lead</h4>
+        <p>Todo contato posterior vira mídia paga de novo. Não existe régua de e-mail, não existe recuperação por WhatsApp.</p>
+        <p>E não existe <b>lista para o próximo lançamento</b> — cada campanha recomeça do zero.</p>
+      </div>
+      <div class="card">
+        <div class="ct">O que muda com a correção</div>
+        <h4>100% de quem clica vira ativo</h4>
+        <p>Com captura, o visitante que não comprou hoje continua sendo trabalhado <b>de graça</b> por sete dias.</p>
+        <p>É a única mudança do documento que aumenta faturamento <b>sem aumentar orçamento de mídia</b>.</p>
+      </div>
+    </div>
+    <div class="note"><b>Prioridade:</b> esta correção vem antes de criativo, antes de público e antes de orçamento. Subir anúncio sem captura é a forma mais garantida de gastar bem e não construir nada.</div>
+  </div>
+  <div class="foot"><span>Defeito nº 1</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">06 / 28</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">A conta</div><div class="num">07</div></div>
+  <h2 class="t sm">R$ 98 e R$ 85 mil na mesma página.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="stats gr" style="margin-bottom:14px">
+      <div class="stat"><div class="k">O que o mercado enxerga</div><div class="v">R$ 98</div><p>O preço do treinamento. É o número que todo mundo usa para julgar se “vale a pena rodar tráfego”.</p></div>
+      <div class="stat"><div class="k">O que está de fato em jogo</div><div class="v">R$ 85 mil</div><p>A taxa de franquia por unidade fechada — <b>antes</b> de qualquer royalty, e por tempo indeterminado.</p></div>
+      <div class="stat terra"><div class="k">A diferença</div><div class="v">867×</div><p>É a distância entre olhar o funil como <b>venda de curso</b> e olhá-lo como <b>originação de franqueado</b>.</p></div>
+    </div>
+    <table class="tight">
+      <tr><th style="width:52%">Cenário de validação (a confirmar com dados reais)</th><th>Valor</th><th>Leitura</th></tr>
+      <tr><td>500 compradores do treinamento a um CAC de R$ 180</td><td><b>R$ 90 mil</b> investidos</td><td>Custo bruto de mídia</td></tr>
+      <tr><td>Receita do front com order bump (ticket médio ~R$ 250)</td><td><b>R$ 125 mil</b></td><td>O front se paga e sobra</td></tr>
+      <tr><td>Custo líquido de originação dos 500 leads qualificados</td><td><b>Zero</b></td><td>Oferta autoliquidável</td></tr>
+      <tr><td>Se 12% aplicarem e 3 fecharem franquia</td><td><b>R$ 255 mil</b> em taxa</td><td>Sem contar royalties</td></tr>
+    </table>
+    <div class="note"><b>Quem paga para aprender a analisar uma franquia é lead de franquia com intenção comprovada por cartão de crédito.</b> É incomparavelmente mais qualificado do que quem preenche um formulário curioso.</div>
+  </div>
+  <div class="foot"><span>A conta</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">07 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">A tese</div><div class="num">08</div></div>
+  <div class="big sm">O treinamento não é receita. É o único mecanismo de<br><em class="s">originação</em> que a ODARA tem além do formulário passivo.</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="split gr">
+      <div class="box no">
+        <h4>Como o funil é tratado hoje</h4>
+        <ul>
+          <li>O treinamento é medido pelo <b>faturamento dele</b>: vendeu 50, faturou R$ 4.900, “não deu certo”.</li>
+          <li>A franquia depende do <b>formulário passivo</b> — só chega quem já procurou a ODARA por conta própria.</li>
+          <li>Os dois produtos vivem em mundos separados. O comprador do curso nunca é convidado para nada.</li>
+          <li>O critério de sucesso é o ROAS do Kiwify — que <b>subestima o valor real</b> em duas ordens de grandeza.</li>
+        </ul>
+      </div>
+      <div class="box ok">
+        <h4>Como passa a ser tratado</h4>
+        <ul>
+          <li>O treinamento é medido por <b>quantas aplicações de franquia</b> ele gera.</li>
+          <li>O faturamento do curso existe para <b>pagar o próprio tráfego</b> — não para ser lucro.</li>
+          <li>A franquia passa a ter <b>originação ativa</b>: você deixa de esperar e passa a escolher.</li>
+          <li>O critério de sucesso é o <b>custo por aplicação qualificada</b>. Tudo o mais é indicador de apoio.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note nu2">Há um efeito colateral valioso: quem compra o treinamento e <b>não</b> vira franqueado ODARA continua sendo uma lista de investidores com capital disponível — o público mais caro de comprar no Meta e o mais difícil de encontrar.</div>
+  </div>
+  <div class="foot"><span>A tese</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">08 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">O elo que falta</div><div class="num">09</div></div>
+  <h2 class="t sm">A página de obrigado é a peça mais importante que não existe.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="flow" style="margin-bottom:16px">
+      <div class="flow-s"><b>HOJE</b><h5>Compra R$ 98</h5><p>Kiwify confirma o pagamento e libera o acesso.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s dead"><b>O BURACO</b><h5>Área de membros</h5><p>O lead mais quente do seu negócio assiste ao curso e vai embora sozinho.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>DEVERIA SER</b><h5>Página de obrigado</h5><p>Vídeo de 90 segundos com você, ao vivo dentro de uma unidade.</p></div>
+      <div class="arw">→</div>
+      <div class="flow-s"><b>DESTINO</b><h5>Aplicação de franquia</h5><p>Formulário qualificado, com capital, prazo e praça.</p></div>
+    </div>
+    <div class="g2 gr dense">
+      <div class="card">
+        <div class="ct">Roteiro do vídeo de 90 segundos</div>
+        <ul>
+          <li><b>0–15s</b> — “Você acabou de comprar o método que eu uso para analisar qualquer franquia.”</li>
+          <li><b>15–45s</b> — “Agora vou te contar uma coisa que eu não coloquei na página de vendas: eu também sou franqueadora.”</li>
+          <li><b>45–75s</b> — “Aplique o filtro que você vai aprender na ODARA. Se ela não passar, não compre a ODARA.”</li>
+          <li><b>75–90s</b> — “Se quiser ver os números por dentro, preenche aqui embaixo. Eu mesma leio.”</li>
+        </ul>
+      </div>
+      <div class="card teal">
+        <div class="ct">O formulário de aplicação</div>
+        <ul>
+          <li><b>Capital disponível</b> — faixas, como já existe no portal</li>
+          <li><b>Prazo para abrir</b> — até 3 meses / 3 a 6 / 6 a 12 / ainda estudando</li>
+          <li><b>Praça pretendida</b> — cidade e bairro</li>
+          <li><b>Experiência prévia</b> — já teve negócio próprio? já foi franqueado?</li>
+          <li><b>Por que a ODARA</b> — campo aberto. É o melhor filtro de intenção que existe.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">Sem esta página, tudo o que está neste documento continua sendo <b>venda de curso de R$ 98</b>. Com ela, vira originação de franqueado.</div>
+  </div>
+  <div class="foot"><span>O elo que falta</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">09 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">A objeção</div><div class="num">10</div></div>
+  <div class="big sm">“Ela ensina a analisar franquias<br>— e vende <em class="s">a própria</em>.”</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="split gr2" style="margin-bottom:14px">
+      <div class="box no">
+        <h4>Se ficar implícito</h4>
+        <ul>
+          <li>Vira <b>desconfiança silenciosa</b>. Ninguém escreve isso no comentário — a pessoa só não compra.</li>
+          <li>Contamina a autoridade: a franqueadora passa a parecer alguém vendendo curso sobre o próprio negócio.</li>
+          <li>Aparece na hora mais cara: no comercial, quando o lead já custou dinheiro para chegar até ali.</li>
+        </ul>
+      </div>
+      <div class="box ok">
+        <h4>Se for dito por você primeiro</h4>
+        <ul>
+          <li>Vira o <b>argumento mais persuasivo</b> do funil inteiro — porque nenhum concorrente pode copiar.</li>
+          <li>Prova o critério: quem entrega o método de análise antes de vender a própria franquia tem confiança no produto.</li>
+          <li>Funciona como <b>gancho de anúncio</b> de alto CTR e resolve a objeção na primeira linha.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bio lt">“Eu vou te ensinar a analisar <b>qualquer</b> franquia com o mesmo filtro. <b>Inclusive a minha.</b> Se a ODARA não passar no seu crivo, não compre a ODARA — compre outra, ou não compre nenhuma. Mas não entre num negócio de R$ 480 mil sem saber o que você está lendo.” <i>— fala-base para anúncio, página de obrigado e conteúdo orgânico</i></div>
+  </div>
+  <div class="foot"><span>A objeção</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">10 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Segmentação</div><div class="num">11</div></div>
+  <h2 class="t sm">Dois públicos, um perfil, zero interseção.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="jan gr">
+      <div class="jan-c">
+        <div class="jt">Trilho A</div>
+        <h4>Franquia ODARA</h4>
+        <div class="age">Investidor · 35 a 55 anos</div>
+        <ul>
+          <li>Tem <b>R$ 480 mil disponíveis</b> ou acesso a crédito equivalente.</li>
+          <li>Decisão <b>racional</b>, comitê familiar, ciclo de 3 a 9 meses.</li>
+          <li>Ticket altíssimo, volume baixo. <b>Poucos leads, muito valor.</b></li>
+          <li>Consome conteúdo de negócio: números, payback, COF, gestão.</li>
+        </ul>
+      </div>
+      <div class="jan-m"><div class="lnk"></div><div class="dot">mesmo<br>perfil</div><div class="lnk"></div></div>
+      <div class="jan-c b">
+        <div class="jt">Trilho B</div>
+        <h4>ORIGEM®</h4>
+        <div class="age">Mulher · 28 a 45 anos</div>
+        <ul>
+          <li>Busca <b>energia, foco e regulação</b> — não busca negócio.</li>
+          <li>Decisão <b>emocional</b>, ciclo de horas a dias.</li>
+          <li>Ticket baixo, volume alto. <b>Muitos leads, pouco valor unitário.</b></li>
+          <li>Consome conteúdo de autodesenvolvimento e bem-estar.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note nu2"><b>Consequência prática:</b> rodar os dois no mesmo pixel faz o algoritmo otimizar o funil caro com dados do funil barato. O custo por aplicação de franquia sobe sem explicação aparente e ninguém descobre a causa. <b>Contas, pixels, listas e criativos separados — sem exceção.</b></div>
+  </div>
+  <div class="foot"><span>Segmentação</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">11 / 28</div></div>
+<div class="wrap"><section class="slide dark sec">
+  <div class="st">Parte um</div>
+  <h2>Trilho A —<br><em class="s">Franquia</em>.</h2>
+  <div class="sl">Onde está o dinheiro. Sete slides sobre como transformar uma página de R$ 98 na máquina de originação que a ODARA nunca teve, o que fazer com a lista que a empresa já tem e qual número decide se a operação escala ou para.</div>
+  <div class="sm2">Slides 13 a 19</div>
+  <div class="foot"><span>Trilho A · Franquia</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">12 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Correções · franquiasemerros</div><div class="num">13</div></div>
+  <h2 class="t sm">Seis reparos na página, em ordem de impacto.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <table class="tight gr">
+      <tr><th style="width:27%">O que está lá hoje</th><th style="width:34%">O que isso entrega</th><th>O que fazer</th></tr>
+      <tr><td><b>Nenhum formulário</b></td><td>Quem não compra some. Sem lista, sem régua, sem segunda chance.</td><td>Captura de <b>e-mail + WhatsApp</b> antes do checkout ou em popup de saída.</td></tr>
+      <tr><td><b>Nenhuma menção à ODARA</b></td><td>O lead mais qualificado do funil termina a jornada e vai embora.</td><td><b>Página de obrigado</b> com vídeo de 90s e formulário de aplicação (slide 09).</td></tr>
+      <tr><td>Botão <b>“Quero minha clínica sob controle”</b></td><td>Copy vazada de outro projeto. Quem quer franquia não tem clínica. Erro visível.</td><td>Trocar por <b>“Quero o método de análise”</b> ou “Quero analisar antes de assinar”.</td></tr>
+      <tr><td><b>Sem prova, sem depoimento, sem FAQ</b></td><td>Promessa alta — “erro de R$ 200 a 800 mil” — com prova zero.</td><td><b>13 unidades</b>, tempo de operação, faturamento real de unidade, FAQ com a objeção do slide 10.</td></tr>
+      <tr><td><b>Garantia não escrita</b></td><td>A garantia legal de 7 dias já existe e não está sendo usada como argumento.</td><td>Selo de <b>7 dias incondicional</b> visível no bloco de oferta — como já é feito no ORIGEM.</td></tr>
+      <tr><td><b>Preço R$ 98</b></td><td>Barato demais para quem tem R$ 480 mil. Atrai curioso e enche a lista de ruído.</td><td>Ver slide seguinte.</td></tr>
+    </table>
+    <div class="note"><b>Nenhum destes seis exige refazer a página.</b> São ajustes em cima do que já está publicado, todos executáveis dentro da Fase 1 do plano.</div>
+  </div>
+  <div class="foot"><span>Correções · Trilho A</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">13 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Precificação</div><div class="num">14</div></div>
+  <div class="big">Preço é <em class="s">filtro</em>.</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="g4 gr dense">
+      <div class="card">
+        <div class="ct">O que R$ 98 atrai</div>
+        <h4>Curioso</h4>
+        <p>Colecionador de curso, quem quer “dar uma olhada”, quem compra por impulso e nunca abre.</p>
+        <p>Enche a lista, <b>não vira aplicação</b> e ainda contamina o público de otimização do Meta.</p>
+      </div>
+      <div class="card">
+        <div class="ct">O que R$ 197 a 297 atrai</div>
+        <h4>Quem já decidiu</h4>
+        <p>Quem já sabe que vai investir e está escolhendo <b>onde</b>. É exatamente o mesmo perfil que assina um cheque de R$ 480 mil.</p>
+      </div>
+      <div class="card teal">
+        <div class="ct">O que muda na conta</div>
+        <h4>Metade das vendas, o dobro do valor</h4>
+        <p>Mesmo vendendo <b>metade</b>, o faturamento se mantém — e a lista que chega na ponta é limpa.</p>
+        <p>O custo por aplicação qualificada <b>cai</b>, que é o número que importa.</p>
+      </div>
+      <div class="card nu2">
+        <div class="ct">Order bump · R$ 47 a 97</div>
+        <h4>O que faz o front se pagar</h4>
+        <p>Planilha de <b>payback e ponto de equilíbrio</b> preenchível, ou uma <b>COF real comentada</b> por você linha a linha.</p>
+        <p>Sobe o ticket médio sem aumentar um centavo de tráfego.</p>
+      </div>
+    </div>
+    <div class="note nu2"><b>Recomendação:</b> R$ 197 com order bump de R$ 67. Ticket médio projetado de R$ 245 a 260. É o ponto em que o front se paga sozinho e a qualidade da lista sustenta a conversa de R$ 480 mil.</div>
+  </div>
+  <div class="foot"><span>Precificação</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">14 / 28</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">A lista da empresa</div><div class="num">15</div></div>
+  <div class="big sm">A lista é o melhor público que você tem.<br>E é o mais fácil de <em class="s">queimar</em>.</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="lead" style="margin-bottom:14px">Quem já preencheu o formulário da ODARA <strong>sabe quem você é, sabe o preço e já falou (ou fugiu) do comercial</strong>. Servir a essa pessoa um anúncio de treinamento de R$ 98 é descer quatro mil e oitocentos degraus de uma vez — e ensinar ao lead que a franqueadora virou infoprodutora. A lista deve ser usada. Só que de três outras formas.</div>
+    <div class="g3 gr dense">
+      <div class="card">
+        <div class="ct">Uso 1 · Exclusão</div>
+        <h4>Tirar da rota do infoproduto</h4>
+        <p>Subir como <b>público personalizado</b> e excluí-la de todas as campanhas de treinamento e de ORIGEM.</p>
+        <p>Para o desperdício e impede o rebaixamento de percepção. É o uso mais barato e o mais ignorado.</p>
+      </div>
+      <div class="card teal">
+        <div class="ct">Uso 2 · Semente</div>
+        <h4>Lookalike 1% do capital alto</h4>
+        <p>Filtrar apenas quem marcou <b>R$ 500 mil a 750 mil</b> ou <b>acima de R$ 1 milhão</b> no formulário e usar como semente.</p>
+        <p>É o público frio mais valioso que a ODARA possui — e provavelmente nunca foi usado.</p>
+      </div>
+      <div class="card nu2">
+        <div class="ct">Uso 3 · Reativação</div>
+        <h4>A oferta certa é conversa</h4>
+        <p>Para essa lista a oferta não é curso: é <b>unidade nova por dentro</b>, número real de operação e convite para uma sessão de análise.</p>
+        <p>Objetivo de campanha: <b>Mensagens</b> ou <b>Agendamento</b>. Nunca Compra.</p>
+      </div>
+    </div>
+    <div class="note"><b>Antes de subir:</b> confirmar a base legal do upload (LGPD). Lead que preencheu formulário próprio de interesse comercial passa. Lista comprada, importada de terceiro ou raspada, não — e o risco não compensa.</div>
+  </div>
+  <div class="foot"><span>A lista da empresa</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">15 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Estrutura de campanha</div><div class="num">16</div></div>
+  <h2 class="t sm">Cinco campanhas, cinco funções distintas.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <table class="tight gr">
+      <tr><th style="width:19%">Campanha</th><th style="width:33%">Público</th><th style="width:18%">Objetivo</th><th>Papel na operação</th></tr>
+      <tr><td><b>Aquisição fria 1</b></td><td>Lookalike 1% dos leads com capital declarado acima de R$ 500 mil</td><td><b>Compra</b></td><td>Testar o público mais parecido com quem já quis a ODARA</td></tr>
+      <tr><td><b>Aquisição fria 2</b></td><td>Interesses: franquia, ABF, investidor pessoa física, empreendedorismo, estética e wellness</td><td><b>Compra</b></td><td>Volume e descoberta de ângulo criativo</td></tr>
+      <tr><td><b>Reativação</b></td><td>Lista de leads de franquia — <b>excluída de todas as demais</b></td><td><b>Mensagens</b> ou Agendamento</td><td>Reabrir conversa parada sem rebaixar o ticket</td></tr>
+      <tr><td><b>Remarketing</b></td><td>Visitou a página e não comprou — janelas de 7, 14 e 30 dias</td><td><b>Compra</b></td><td>Recuperar o que a página perdeu na primeira visita</td></tr>
+      <tr><td><b>Retenção</b></td><td>Comprou o treinamento e ainda não preencheu a aplicação</td><td><b>Lead</b> (aplicação)</td><td>Levar do R$ 197 ao R$ 480 mil — a campanha mais lucrativa das cinco</td></tr>
+    </table>
+    <div class="note"><b>Orçamento de validação:</b> R$ 100 a 150 por dia, por 14 dias, concentrado nas duas campanhas de aquisição. Remarketing e retenção entram assim que houver volume. <b>Nada escala antes do corte do slide 18.</b></div>
+  </div>
+  <div class="foot"><span>Estrutura de campanha</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">16 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Criativos</div><div class="num">17</div></div>
+  <h2 class="t sm">Três ângulos, oito peças, um rosto.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="g3 gr dense">
+      <div class="card">
+        <div class="ct">Ângulo 1 · Erro e perda</div>
+        <h4>“O erro que custa entre R$ 200 e R$ 800 mil”</h4>
+        <p>Abre com <b>número</b>, não com promessa. Fala com quem já está pesquisando franquia e sente medo de errar.</p>
+        <p>É o ângulo que a própria página já usa — só que enterrado no meio do texto, onde ninguém chega.</p>
+      </div>
+      <div class="card">
+        <div class="ct">Ângulo 2 · Autoridade e bastidor</div>
+        <h4>Você dentro de uma unidade, falando de um número real</h4>
+        <p>Faturamento, ponto de equilíbrio, o que deu errado na primeira unidade.</p>
+        <p>É o único ângulo que <b>nenhum concorrente consegue copiar</b> — porque exige ter construído a rede.</p>
+      </div>
+      <div class="card teal">
+        <div class="ct">Ângulo 3 · Contraintuitivo</div>
+        <h4>“Não compre a minha franquia antes de fazer isto”</h4>
+        <p>CTR alto e resolve a objeção do conflito de interesse <b>na primeira linha</b>, antes que ela vire desconfiança.</p>
+        <p>Tende a ser o criativo campeão. Vale ter três variações dele desde o primeiro dia.</p>
+      </div>
+    </div>
+    <div class="note"><b>Formato dominante:</b> você falando em câmera, vertical, sem motion e sem locução de terceiro. O ativo é o seu rosto e o seu histórico — não o design. <b>6 a 8 peças no ar ao mesmo tempo</b>, trocando as duas piores a cada semana. Os destaques <b>Matriz FRANQ®</b>, <b>Papo Franquia</b> e <b>#ABF</b> já contêm material bruto para as primeiras quatro.</div>
+  </div>
+  <div class="foot"><span>Criativos</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">17 / 28</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">Corte de decisão</div><div class="num">18</div></div>
+  <h2 class="t sm">O que decide, no dia 14, se escala ou para.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="g3 gr" style="margin-bottom:14px">
+      <div class="card">
+        <div class="ct">Cenário verde</div>
+        <h4>Abaixo de R$ 200 por compra</h4>
+        <p><b>Escalar.</b> O front se paga, a originação sai de graça e o único limite passa a ser a capacidade do comercial de atender.</p>
+        <p>Subir orçamento em <b>20% a cada dois dias</b>, sem trocar criativo no mesmo intervalo.</p>
+      </div>
+      <div class="card nu2">
+        <div class="ct">Cenário amarelo</div>
+        <h4>Entre R$ 200 e R$ 350</h4>
+        <p><b>Não escalar.</b> O problema é a página, não o tráfego.</p>
+        <p>Corrigir prova, garantia e bloco de oferta antes de subir um real. Escalar aqui só multiplica o vazamento.</p>
+      </div>
+      <div class="card terra">
+        <div class="ct">Cenário vermelho</div>
+        <h4>Acima de R$ 350</h4>
+        <p><b>Parar.</b> O problema não é mídia — é oferta ou público.</p>
+        <p>Voltar ao slide 14, revisar preço e promessa, e retestar com um novo ângulo antes de reinvestir.</p>
+      </div>
+    </div>
+    <div class="note"><b>A métrica de sucesso do Trilho A não é venda de treinamento.</b> É <b>aplicação de franquia qualificada</b> — capital declarado igual ou superior a R$ 480 mil. Meta inicial realista: <b>15 a 25 aplicações por mês</b>. O custo por compra é apenas o indicador que diz se o caminho até lá está saudável.</div>
+  </div>
+  <div class="foot"><span>Corte de decisão</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">18 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">O gargalo real</div><div class="num">19</div></div>
+  <div class="big sm">Nenhum funil sobrevive a um lead esperando<br><em class="s">três dias</em> por resposta.</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="steps gr">
+      <div class="step"><b>01</b><div><h5>Prazo de primeira resposta</h5><p>Aplicação recebida = contato em <b>até 24 horas úteis</b>. O padrão que converte é <b>2 horas</b>. Acima de 48 horas, o lead que você pagou para gerar já está conversando com outra rede.</p></div></div>
+      <div class="step"><b>02</b><div><h5>Roteiro único de qualificação</h5><p>Quatro perguntas, sempre na mesma ordem: <b>capital, prazo, praça e experiência prévia</b>. Sem roteiro, cada atendente qualifica de um jeito e nenhum dado é comparável entre si.</p></div></div>
+      <div class="step"><b>03</b><div><h5>Origem marcada no CRM</h5><p>Todo lead entra com a fonte registrada — <b>treinamento, formulário do portal, indicação ou orgânico</b>. Sem isso é impossível saber qual campanha gerou franqueado e qual só gerou movimento.</p></div></div>
+      <div class="step"><b>04</b><div><h5>Auditoria dos últimos 90 dias</h5><p>Antes de subir verba, revisar como os leads atuais foram tratados: <b>tempo de resposta, quantas tentativas, onde a conversa morreu</b>. É o diagnóstico mais barato disponível e quase sempre o mais revelador.</p></div></div>
+    </div>
+    <div class="note nu2"><b>Ordem correta:</b> medir o comercial antes de investir em mídia. Aumentar volume de lead num atendimento lento não aumenta vendas — aumenta o número de pessoas com uma má impressão da marca.</div>
+  </div>
+  <div class="foot"><span>O gargalo real</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">19 / 28</div></div>
+<div class="wrap"><section class="slide panel sec">
+  <div class="st">Parte dois</div>
+  <h2>Trilho B —<br><em class="s">ORIGEM</em>.</h2>
+  <div class="sl">Onde está o volume. Quatro slides sobre por que o funil perde a maior parte do público antes do checkout, qual é o papel real do pressell — e por que ele não deveria estar no link da bio.</div>
+  <div class="sm2">Slides 21 a 24</div>
+  <div class="foot"><span>Trilho B · ORIGEM</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">20 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Funil ORIGEM</div><div class="num">21</div></div>
+  <h2 class="t sm">Quatro páginas até o checkout.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <table class="tight gr">
+      <tr><th style="width:20%">Etapa</th><th style="width:38%">O que ela faz hoje</th><th>O problema</th></tr>
+      <tr><td><b>1 · Pressell</b><br><i>origem-pressell</i></td><td>Texto de storytelling. “Você não está cansada. Você está desregulada.” Quatro botões idênticos.</td><td>Está no <b>link da bio</b> — ou seja, servindo quem já te segue e já confia. Adiciona um clique sem adicionar convicção.</td></tr>
+      <tr><td><b>2 · Aula gratuita</b><br><i>origem-aula-gratuita</i></td><td>Vídeo liberado direto, sem cadastro. Dois botões “Quero acessar o curso completo”.</td><td><b>Não captura nada.</b> E usa “Encerra hoje / Vagas limitadas” numa página perene — risco de reprovação no Meta e desgaste de credibilidade.</td></tr>
+      <tr><td><b>3 · Página de vendas</b><br><i>pagina-vendas</i></td><td>Oferta completa: R$ 197,90 de R$ 497, cinco bônus, garantia de 7 dias, cinco CTAs.</td><td>É a <b>terceira</b> página. Boa parte de quem chegaria aqui já desistiu duas telas atrás.</td></tr>
+      <tr><td><b>4 · Checkout</b><br><i>Kiwify</i></td><td>Pagamento à vista ou em 12x de R$ 20,37.</td><td>Quarto clique. Quem não comprou <b>não deixou nenhum rastro utilizável</b>.</td></tr>
+    </table>
+    <div class="note nu2">Perdendo metade do público em cada etapa — o que é otimista para páginas sem vídeo na primeira tela — <b>chegam cerca de 6% ao checkout</b>. E os 94% restantes não podem ser contatados de novo sem pagar por eles outra vez.</div>
+  </div>
+  <div class="foot"><span>Funil ORIGEM</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">21 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Diagnóstico ORIGEM</div><div class="num">22</div></div>
+  <div class="big sm">O pressell não está errado.<br>O <em class="s">lugar</em> dele está.</div>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="lead" style="margin-bottom:14px">Pressell é uma peça de <strong>tráfego frio</strong>. Ela existe para esquentar quem não te conhece e para navegar a política de anúncio do Meta com segurança. Quem chega pela bio do Instagram já te segue, já viu seus stories e já confia — para essa pessoa, o pressell é apenas um obstáculo a mais entre a intenção e a compra.</div>
+    <div class="split gr">
+      <div class="box no">
+        <h4>O que não fazer</h4>
+        <ul>
+          <li><b>Eliminar o pressell.</b> Ele é a peça certa para o público frio e vai ser necessário quando a mídia paga escalar.</li>
+          <li><b>Manter tudo como está</b> e culpar o tráfego pela conversão baixa.</li>
+          <li><b>Trocar a ordem sem capturar contato</b> — encurtar o funil sem lista só faz você perder o público mais rápido.</li>
+        </ul>
+      </div>
+      <div class="box ok">
+        <h4>O que fazer — bifurcar por origem</h4>
+        <ul>
+          <li><b>Bio, stories e orgânico</b> → direto na aula, com captura. Dois cliques até a oferta.</li>
+          <li><b>Tráfego pago frio</b> → mantém o pressell. Três cliques, mas com o aquecimento que o frio exige.</li>
+          <li><b>Dois links, o mesmo produto.</b> Nenhuma página precisa ser refeita — só reapontada.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>Você estava certa na intuição.</b> O ajuste é de destino, não de demolição: quem já te conhece vai direto para o vídeo, quem não conhece passa pelo texto antes.</div>
+  </div>
+  <div class="foot"><span>Diagnóstico ORIGEM</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">22 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Correções · ORIGEM</div><div class="num">23</div></div>
+  <h2 class="t sm">Cinco correções, em ordem de impacto.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="steps gr">
+      <div class="step"><b>01</b><div><h5>Capturar antes de liberar a aula</h5><p>E-mail e WhatsApp obrigatórios para assistir. É a correção mais cara de adiar: <b>cada dia sem ela é uma lista inteira perdida</b>. Vale mais do que qualquer otimização de criativo.</p></div></div>
+      <div class="step"><b>02</b><div><h5>Bifurcar por origem</h5><p>Bio e orgânico direto na aula; tráfego pago frio mantém o pressell. <b>Dois links, mesmo produto</b> — e passa a ser possível medir cada origem separadamente.</p></div></div>
+      <div class="step"><b>03</b><div><h5>Encurtar para duas etapas</h5><p>Aula com captura → oferta revelada <b>na própria página</b>, logo abaixo do vídeo, depois do pitch. Elimina uma página inteira de atrito sem perder um único argumento.</p></div></div>
+      <div class="step"><b>04</b><div><h5>Delay no botão de compra</h5><p>Sincronizado com o momento do pitch na VSL. Hoje o botão está livre desde o segundo zero — a pessoa clica antes do argumento e <b>chega na oferta sem motivo para comprar</b>.</p></div></div>
+      <div class="step"><b>05</b><div><h5>Remover a urgência falsa</h5><p>“Encerra hoje” e “Vagas limitadas” numa página perene queimam credibilidade e são risco de reprovação no Meta. Trocar por escassez real: <b>turma com data, bônus com prazo verdadeiro ou preço que sobe de fato</b>.</p></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Correções · ORIGEM</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">23 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Perfil</div><div class="num">24</div></div>
+  <h2 class="t sm">57 mil seguidores servindo o item mais barato do portfólio.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="bio lt" style="margin-bottom:14px">Bio hoje: <b>“Founder e Franqueadora @odaralifestyle @oda.hub · Expansão • negócios • bem-estar · Infoprodutora”</b> · Link: <i>isabellaodara.online/origem-pressell</i> <i>— a autoridade construída como franqueadora aponta para o produto de R$ 197.</i></div>
+    <div class="g3 gr dense">
+      <div class="card teal">
+        <div class="ct">Ação 1 · O link</div>
+        <h4>Hub com três destinos</h4>
+        <p>Nesta ordem, deliberadamente:</p>
+        <ul><li><b>Quero ser franqueada ODARA</b></li><li><b>Quero aprender a escolher uma franquia</b></li><li><b>ORIGEM®</b></li></ul>
+        <p>O visitante escolhe o próprio trilho e você para de mandar investidor para uma página de bem-estar.</p>
+      </div>
+      <div class="card">
+        <div class="ct">Ação 2 · A bio</div>
+        <h4>Tirar “Infoprodutora”</h4>
+        <p>Não agrega nada ao público de R$ 480 mil e dilui a percepção de franqueadora — que é o ativo mais raro que você tem.</p>
+        <p>O que fica: <b>founder, franqueadora, expansão</b>. O infoproduto aparece no link, não no cargo.</p>
+      </div>
+      <div class="card nu2">
+        <div class="ct">Ação 3 · Os destaques</div>
+        <h4>O melhor acervo está parado</h4>
+        <p><b>Matriz FRANQ®</b>, <b>Papo Franquia</b>, <b>#ABF</b> e <b>Imersão Odara</b> já são conteúdo de autoridade pronto.</p>
+        <p>Viram criativo de anúncio com corte e legenda — <b>sem gravar nada novo</b>. É a forma mais rápida de ter as primeiras peças no ar.</p>
+      </div>
+    </div>
+    <div class="note">Os dois públicos convivem no mesmo perfil sem problema — desde que o <b>link separe</b> o que o feed mistura. É o link da bio que faz a triagem, não o conteúdo.</div>
+  </div>
+  <div class="foot"><span>Perfil</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">24 / 28</div></div>
+<div class="wrap"><section class="slide dark">
+  <div class="s-head"><div class="tag">Execução</div><div class="num">25</div></div>
+  <h2 class="t sm">Plano de 90 dias.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="fase gr" style="margin-bottom:14px">
+      <div class="fase-c">
+        <div class="fh">Fase 1 · Dias 1 a 15</div>
+        <h4>Bloqueantes</h4>
+        <ul>
+          <li>Captura de e-mail e WhatsApp <b>nos dois funis</b></li>
+          <li><b>Página de obrigado</b> com vídeo e formulário de aplicação</li>
+          <li>Corrigir o CTA “minha clínica”, prova, garantia e FAQ</li>
+          <li>Pixel e <b>CAPI</b> com eventos separados por trilho</li>
+          <li>Novo preço e <b>order bump</b> no Kiwify</li>
+          <li>Auditoria de 90 dias do comercial</li>
+        </ul>
+      </div>
+      <div class="fase-c">
+        <div class="fh">Fase 2 · Dias 16 a 45</div>
+        <h4>Validação</h4>
+        <ul>
+          <li>Subir a lista: <b>exclusão + lookalike 1%</b></li>
+          <li>Quatro campanhas do Trilho A a <b>R$ 100–150/dia</b></li>
+          <li>6 a 8 criativos nos três ângulos</li>
+          <li>Bifurcação e encurtamento do funil ORIGEM</li>
+          <li><b>Corte de decisão no dia 14</b> de veiculação</li>
+          <li>Régua de 7 dias para comprador do treinamento</li>
+        </ul>
+      </div>
+      <div class="fase-c">
+        <div class="fh">Fase 3 · Dias 46 a 90</div>
+        <h4>Escala</h4>
+        <ul>
+          <li>Escalar o que passou no corte: <b>+20% a cada 2 dias</b></li>
+          <li>Campanha de <b>retenção</b> (comprador → aplicação)</li>
+          <li>Remarketing em três janelas</li>
+          <li>SLA comercial rodando com <b>origem marcada</b></li>
+          <li>Primeiro relatório de <b>custo por aplicação</b></li>
+          <li>Decisão sobre escalar o Trilho B com a lista já formada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>A ordem não é negociável.</b> A Fase 2 sem a Fase 1 concluída gasta orçamento construindo nada — e a Fase 3 sem o corte da Fase 2 escala um funil que ainda não provou que funciona.</div>
+  </div>
+  <div class="foot"><span>Execução</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">25 / 28</div></div>
+<div class="wrap"><section class="slide">
+  <div class="s-head"><div class="tag">Metas</div><div class="num">26</div></div>
+  <h2 class="t sm">O que vamos medir, e onde.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <table class="tight gr">
+      <tr><th style="width:38%">Indicador</th><th style="width:30%">Onde medir</th><th>Meta em 90 dias</th></tr>
+      <tr><td>Custo por compra do treinamento</td><td>Gerenciador de Anúncios + Kiwify</td><td><b>≤ R$ 200</b></td></tr>
+      <tr><td>Ticket médio do front (com order bump)</td><td>Kiwify</td><td><b>≥ R$ 245</b></td></tr>
+      <tr><td>Taxa de aplicação — comprador que preenche</td><td>Página de obrigado</td><td><b>≥ 12%</b></td></tr>
+      <tr><td>Aplicações qualificadas por mês (capital ≥ R$ 480 mil)</td><td>CRM</td><td><b>15 a 25</b></td></tr>
+      <tr><td class="hd" style="background:rgba(0,105,117,.06)"><b>Custo por aplicação qualificada</b></td><td class="hd" style="background:rgba(0,105,117,.06)">Gerenciador ÷ CRM</td><td style="background:rgba(0,105,117,.06)"><b>≤ R$ 900</b></td></tr>
+      <tr><td>Contatos capturados por mês (soma dos dois trilhos)</td><td>Ferramenta de e-mail e WhatsApp</td><td><b>≥ 2.000</b></td></tr>
+      <tr><td>Tempo de primeira resposta comercial</td><td>CRM</td><td><b>≤ 24 h</b> · ideal 2 h</td></tr>
+    </table>
+    <div class="note"><b>Só um destes números decide o investimento:</b> o custo por aplicação qualificada. Todos os outros existem para explicar por que ele subiu ou caiu. A R$ 900 por aplicação e uma taxa de fechamento de 5%, cada franqueado custa R$ 18 mil para originar — contra R$ 85 mil de taxa.</div>
+  </div>
+  <div class="foot"><span>Metas</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">26 / 28</div></div>
+<div class="wrap"><section class="slide panel">
+  <div class="s-head"><div class="tag">Pendências</div><div class="num">27</div></div>
+  <h2 class="t sm">O que preciso de você para começar.</h2>
+  <div class="rule"></div>
+  <div class="body-wrap">
+    <div class="chk gr">
+      <div class="chk-i"><b>01</b><span><i>Acesso ao Business Manager</i> e ao Gerenciador de Anúncios, com permissão de administrador.</span></div>
+      <div class="chk-i"><b>02</b><span><i>Acesso ao Kiwify</i> — as duas contas de produto, para configurar bump e rastreio.</span></div>
+      <div class="chk-i"><b>03</b><span><i>A lista de leads de franquia em CSV</i>, com a faixa de capital declarada em cada linha.</span></div>
+      <div class="chk-i"><b>04</b><span><i>Como o comercial trata o lead hoje</i>: quem atende, em quanto tempo, com qual roteiro.</span></div>
+      <div class="chk-i"><b>05</b><span><i>Número real de unidades em operação</i> e faturamento médio autorizado para uso em anúncio.</span></div>
+      <div class="chk-i"><b>06</b><span><i>Validação jurídica</i> do que pode ser dito sobre faturamento — “até R$ 2 milhões/ano” precisa de lastro documental.</span></div>
+      <div class="chk-i"><b>07</b><span><i>Decisão sobre o preço final</i> do treinamento e sobre qual será o order bump.</span></div>
+      <div class="chk-i"><b>08</b><span><i>Uma tarde de gravação</i>: oito criativos dentro de uma unidade, roteiro pronto de minha parte.</span></div>
+      <div class="chk-i"><b>09</b><span><i>Quem edita as páginas</i> em WordPress e qual o prazo médio para uma alteração entrar no ar.</span></div>
+    </div>
+    <div class="note nu2">Os itens <b>01 a 04</b> travam o início — sem eles não há Fase 1. Os itens <b>05 a 07</b> precisam estar resolvidos antes da primeira campanha subir. Os itens <b>08 e 09</b> definem o ritmo de tudo o que vem depois.</div>
+  </div>
+  <div class="foot"><span>Pendências</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">27 / 28</div></div>
+<div class="wrap"><section class="slide dark sec">
+  <div class="st">Para começar</div>
+  <h2>A ordem importa mais<br>que o <em class="s">orçamento</em>.</h2>
+  <div class="sl">Capturar → construir a ponte → formar a lista → só então subir campanha → e escalar apenas o que passou no corte. Subir anúncio antes da captura é a forma mais confiável de gastar bem e não construir nada — e é exatamente onde os dois funis estão hoje.</div>
+  <div class="sm2">Isabella Barros · ODARA Lifestyle — preparado por Felipe Cavalcanti · 2026</div>
+  <div class="foot"><span>Diagnóstico de Funil e Plano de Originação</span><span>ODARA Lifestyle · 2026</span></div>
+</section><div class="sn">28 / 28</div></div>
+  </div></div>
+</main>
+
+<footer class="foot-web">
+  <p><b>Diagnóstico de Funil e Plano de Originação — ODARA Lifestyle</b> · preparado por Felipe Cavalcanti, 2026.<br>
+  Documento de trabalho. Para exportar em PDF: imprimir com “gráficos de fundo” ativado.</p>
+  <a class="top" href="#">Voltar ao topo</a>
+</footer>
+
+<script>
+
+(function(){
+  var deck = document.querySelector('.stage');
+  function fit(){
+    if(!deck) return;
+    document.documentElement.style.setProperty('--sc', Math.min(1, deck.clientWidth / 1280));
+  }
+  fit();
+  window.addEventListener('resize', fit, {passive:true});
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  var bar = document.querySelector('.prog');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(bar) bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+</script>
+</body>
+</html>
