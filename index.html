@@ -100,8 +100,11 @@ h2.t.sm{ font-size:40px; }
 .g4{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
 .gr{ flex:1 1 0; min-height:0; }
 .gr2{ flex:2 1 0; min-height:0; }
-.gr > .card, .gr > .box, .gr > .flow-s, .gr > .fase-c, .gr > .stat,
-.gr2 > .card, .gr2 > .box{ display:flex; flex-direction:column; justify-content:center; }
+.gr > .box, .gr > .flow-s, .gr > .stat,
+.gr2 > .box{ display:flex; flex-direction:column; justify-content:center; }
+.gr > .card, .gr2 > .card{ display:flex; flex-direction:column; justify-content:center; }
+.gr > .fase-c{ display:flex; flex-direction:column; justify-content:flex-start; }
+.g4.gr > .card{ justify-content:flex-start; }
 .chk.gr, .idx.gr{ align-content:space-between; }
 .steps.gr{ justify-content:space-between; }
 .gr > .spread{ display:flex; flex-direction:column; justify-content:space-between; }
@@ -273,6 +276,9 @@ table.tight th{ padding:6px 8px; font-size:8.5px; }
 .fase-c li::before{ content:''; position:absolute; left:0; top:6px; width:5px; height:5px;
   border-radius:50%; background:var(--acc); }
 .fase-c li b{ color:var(--txt-hi); font-weight:600; }
+.fase-c .fend{ margin-top:auto; padding-top:11px; border-top:1px solid var(--line); font-size:11px;
+  line-height:1.46; color:var(--txt-soft); }
+.fase-c .fend b{ color:var(--acc); font-weight:700; letter-spacing:.04em; }
 
 
 /* Shell web — envolve os slides 1280x720 sem alterar o design.
@@ -391,18 +397,21 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
         <h4>O franquiasemerros vende franquia?</h4>
         <p><b>Não.</b> Ele vende um treinamento de R$ 98 no Kiwify sobre como escolher uma franquia — e em nenhum momento faz a ponte para a ODARA.</p>
         <p>Isso não é um defeito de copy. É um <b>elo faltando no negócio</b>.</p>
+        <p>Quem compra o treinamento é a pessoa mais próxima de assinar um contrato de franquia que existe no seu funil — e hoje ela termina o curso e vai embora sem receber um único convite.</p>
       </div>
       <div class="card">
         <div class="ct">Pergunta 2</div>
         <h4>Dá para rodar tráfego para a lista da empresa?</h4>
         <p>Dá, e deve. Mas <b>não com a oferta que parece óbvia</b>.</p>
         <p>Quem já pediu informação de franquia é o público mais valioso que existe aqui — e o mais fácil de queimar com o anúncio errado.</p>
+        <p>A resposta curta: a lista serve para <b>excluir, semear e reativar</b> — nunca para receber oferta de infoproduto. O slide 15 detalha os três usos.</p>
       </div>
       <div class="card">
         <div class="ct">Pergunta 3</div>
         <h4>O funil do ORIGEM está certo?</h4>
         <p>A estrutura está. <b>O lugar de cada peça, não.</b></p>
         <p>Hoje são quatro páginas até o checkout — e nenhuma delas guarda um e-mail sequer.</p>
+        <p>O pressell não precisa ser eliminado. Precisa <b>sair do link da bio</b> e voltar para onde ele funciona: o tráfego frio.</p>
       </div>
     </div>
     <div class="note"><b>O que este documento não faz:</b> não define preço de franquia, não reescreve a COF e não substitui a validação jurídica sobre projeção de faturamento. Ele trata de estrutura de funil, originação de lead qualificado e escopo de mídia paga.</div>
@@ -494,18 +503,21 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
         <h4>O contato nunca é registrado</h4>
         <p>A aula do ORIGEM abre sem cadastro. A página do treinamento não tem formulário nenhum.</p>
         <p>Quem assiste, considera e não compra <b>desaparece</b> — sem e-mail, sem WhatsApp e sem evento de lead confiável no pixel.</p>
+        <p>Na prática, o Meta também fica cego: sem evento de lead, o algoritmo só aprende com quem comprou — uma fração mínima do público.</p>
       </div>
       <div class="card terra">
         <div class="ct">O que isso custa</div>
         <h4>Você paga duas vezes pelo mesmo lead</h4>
         <p>Todo contato posterior vira mídia paga de novo. Não existe régua de e-mail, não existe recuperação por WhatsApp.</p>
         <p>E não existe <b>lista para o próximo lançamento</b> — cada campanha recomeça do zero.</p>
+        <p>Um funil sem lista <b>não acumula valor</b>. Você pode rodar tráfego por doze meses e terminar exatamente com o que começou.</p>
       </div>
       <div class="card">
         <div class="ct">O que muda com a correção</div>
         <h4>100% de quem clica vira ativo</h4>
         <p>Com captura, o visitante que não comprou hoje continua sendo trabalhado <b>de graça</b> por sete dias.</p>
         <p>É a única mudança do documento que aumenta faturamento <b>sem aumentar orçamento de mídia</b>.</p>
+        <p>E cria o único ativo que sobra quando você desliga o anúncio: <b>uma base de investidores com capital declarado</b>.</p>
       </div>
     </div>
     <div class="note"><b>Prioridade:</b> esta correção vem antes de criativo, antes de público e antes de orçamento. Subir anúncio sem captura é a forma mais garantida de gastar bem e não construir nada.</div>
@@ -517,6 +529,7 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
   <h2 class="t sm">R$ 98 e R$ 85 mil na mesma página.</h2>
   <div class="rule"></div>
   <div class="body-wrap">
+    <div class="lead" style="margin-bottom:14px">O treinamento e a franquia estão sendo julgados pela mesma régua — e não deveriam. Um é <strong>o preço de entrada</strong>. O outro é <strong>o que está sendo comprado de verdade</strong>.</div>
     <div class="stats gr" style="margin-bottom:14px">
       <div class="stat"><div class="k">O que o mercado enxerga</div><div class="v">R$ 98</div><p>O preço do treinamento. É o número que todo mundo usa para julgar se “vale a pena rodar tráfego”.</p></div>
       <div class="stat"><div class="k">O que está de fato em jogo</div><div class="v">R$ 85 mil</div><p>A taxa de franquia por unidade fechada — <b>antes</b> de qualquer royalty, e por tempo indeterminado.</p></div>
@@ -594,7 +607,9 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
           <li><b>Praça pretendida</b> — cidade e bairro</li>
           <li><b>Experiência prévia</b> — já teve negócio próprio? já foi franqueado?</li>
           <li><b>Por que a ODARA</b> — campo aberto. É o melhor filtro de intenção que existe.</li>
+          <li><b>WhatsApp</b> — obrigatório, com DDD. É por onde o comercial vai abrir a conversa.</li>
         </ul>
+        <p style="margin-top:9px">Cinco campos objetivos e um aberto. Mais que isso derruba a taxa de preenchimento; menos que isso entrega lead que o comercial não consegue priorizar.</p>
       </div>
     </div>
     <div class="note">Sem esta página, tudo o que está neste documento continua sendo <b>venda de curso de R$ 98</b>. Com ela, vira originação de franqueado.</div>
@@ -643,6 +658,12 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
           <li>Decisão <b>racional</b>, comitê familiar, ciclo de 3 a 9 meses.</li>
           <li>Ticket altíssimo, volume baixo. <b>Poucos leads, muito valor.</b></li>
           <li>Consome conteúdo de negócio: números, payback, COF, gestão.</li>
+          <li>Precisa de <b>prova documental</b>: unidade real, faturamento real, contrato.</li>
+          <li>Converte em <b>conversa</b>, nunca em botão de compra.</li>
+          <li>Custo por lead alto — e ainda assim <b>barato</b> diante da taxa de R$ 85 mil.</li>
+          <li>A decisão raramente é individual: passa por <b>cônjuge, contador e advogado</b>.</li>
+          <li>Pesquisa a franqueadora <b>antes</b> de falar com ela — o perfil é auditado.</li>
+          <li>Se não fechar agora, volta em seis meses. <b>O CRM é o que segura essa volta.</b></li>
         </ul>
       </div>
       <div class="jan-m"><div class="lnk"></div><div class="dot">mesmo<br>perfil</div><div class="lnk"></div></div>
@@ -655,6 +676,12 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
           <li>Decisão <b>emocional</b>, ciclo de horas a dias.</li>
           <li>Ticket baixo, volume alto. <b>Muitos leads, pouco valor unitário.</b></li>
           <li>Consome conteúdo de autodesenvolvimento e bem-estar.</li>
+          <li>Precisa de <b>identificação</b>: reconhecer o próprio sintoma na primeira frase.</li>
+          <li>Converte no <b>checkout</b>, sem passar por humano nenhum.</li>
+          <li>Custo por lead baixo — e o funil só fecha a conta <b>no volume</b>.</li>
+          <li>Compra por impulso, com frequência à noite e pelo celular.</li>
+          <li>Não pesquisa a fundadora — pesquisa se a <b>promessa faz sentido para ela</b>.</li>
+          <li>Se não comprar hoje, dificilmente volta sozinha. <b>A lista é o único resgate.</b></li>
         </ul>
       </div>
     </div>
@@ -692,31 +719,42 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
   <div class="big">Preço é <em class="s">filtro</em>.</div>
   <div class="rule"></div>
   <div class="body-wrap">
-    <div class="g4 gr dense">
+    <div class="lead" style="margin-bottom:14px">R$ 98 não é barato nem caro — é <strong>impreciso</strong>. Preço baixo demais não aumenta volume de gente certa: aumenta volume de gente errada, e quem paga essa conta depois é o comercial, que passa a atender dez curiosos para cada investidor real.</div>
+    <div class="g4 dense" style="margin-bottom:14px">
       <div class="card">
         <div class="ct">O que R$ 98 atrai</div>
         <h4>Curioso</h4>
         <p>Colecionador de curso, quem quer “dar uma olhada”, quem compra por impulso e nunca abre.</p>
         <p>Enche a lista, <b>não vira aplicação</b> e ainda contamina o público de otimização do Meta.</p>
+        <p>No fim, o algoritmo passa a buscar <b>mais gente parecida com quem nunca vai comprar franquia</b>.</p>
       </div>
       <div class="card">
         <div class="ct">O que R$ 197 a 297 atrai</div>
         <h4>Quem já decidiu</h4>
         <p>Quem já sabe que vai investir e está escolhendo <b>onde</b>. É exatamente o mesmo perfil que assina um cheque de R$ 480 mil.</p>
+        <p>Para quem tem meio milhão em caixa, <b>R$ 197 não é uma decisão</b> — é um detalhe. O que pesa é o conteúdo.</p>
       </div>
       <div class="card teal">
         <div class="ct">O que muda na conta</div>
         <h4>Metade das vendas, o dobro do valor</h4>
         <p>Mesmo vendendo <b>metade</b>, o faturamento se mantém — e a lista que chega na ponta é limpa.</p>
         <p>O custo por aplicação qualificada <b>cai</b>, que é o número que importa.</p>
+        <p>Menos venda, mais franqueado. <b>É a troca certa.</b></p>
       </div>
       <div class="card nu2">
         <div class="ct">Order bump · R$ 47 a 97</div>
         <h4>O que faz o front se pagar</h4>
         <p>Planilha de <b>payback e ponto de equilíbrio</b> preenchível, ou uma <b>COF real comentada</b> por você linha a linha.</p>
         <p>Sobe o ticket médio sem aumentar um centavo de tráfego.</p>
+        <p>Quem aceita o bump é, por definição, <b>quem está mais perto de comprar uma unidade</b> — e isso já é um sinal de qualificação.</p>
       </div>
     </div>
+    <table class="tight gr">
+      <tr><th style="width:22%">Cenário de preço</th><th>Vendas/mês estimadas</th><th>Faturamento do front</th><th>Qualidade da lista</th><th>Custo por aplicação</th></tr>
+      <tr><td><b>R$ 98</b> · como está hoje</td><td>~100</td><td>R$ 9.800</td><td>Baixa — muito curioso</td><td><b>Alto</b></td></tr>
+      <tr style="background:rgba(79,195,206,.07)"><td><b>R$ 197 + bump R$ 67</b> · recomendado</td><td>~60</td><td><b>R$ 14.700</b></td><td><b>Alta</b> — intenção declarada</td><td><b>Baixo</b></td></tr>
+      <tr><td><b>R$ 297</b> · teto a testar</td><td>~35</td><td>R$ 10.400</td><td>Muito alta, volume curto</td><td>Médio</td></tr>
+    </table>
     <div class="note nu2"><b>Recomendação:</b> R$ 197 com order bump de R$ 67. Ticket médio projetado de R$ 245 a 260. É o ponto em que o front se paga sozinho e a qualidade da lista sustenta a conversa de R$ 480 mil.</div>
   </div>
   <div class="foot"><span>Precificação</span><span>ODARA Lifestyle · 2026</span></div>
@@ -733,18 +771,21 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
         <h4>Tirar da rota do infoproduto</h4>
         <p>Subir como <b>público personalizado</b> e excluí-la de todas as campanhas de treinamento e de ORIGEM.</p>
         <p>Para o desperdício e impede o rebaixamento de percepção. É o uso mais barato e o mais ignorado.</p>
+        <p>Leva <b>dez minutos</b> para configurar e evita que o lead de meio milhão receba um anúncio de curso.</p>
       </div>
       <div class="card teal">
         <div class="ct">Uso 2 · Semente</div>
         <h4>Lookalike 1% do capital alto</h4>
         <p>Filtrar apenas quem marcou <b>R$ 500 mil a 750 mil</b> ou <b>acima de R$ 1 milhão</b> no formulário e usar como semente.</p>
         <p>É o público frio mais valioso que a ODARA possui — e provavelmente nunca foi usado.</p>
+        <p>Quanto mais restrita a semente, melhor o lookalike. <b>Qualidade importa mais que tamanho</b> — 300 leads certos batem 5.000 genéricos.</p>
       </div>
       <div class="card nu2">
         <div class="ct">Uso 3 · Reativação</div>
         <h4>A oferta certa é conversa</h4>
         <p>Para essa lista a oferta não é curso: é <b>unidade nova por dentro</b>, número real de operação e convite para uma sessão de análise.</p>
         <p>Objetivo de campanha: <b>Mensagens</b> ou <b>Agendamento</b>. Nunca Compra.</p>
+        <p>É a campanha mais barata do plano — o público já existe, já te conhece e <b>já demonstrou intenção uma vez</b>.</p>
       </div>
     </div>
     <div class="note"><b>Antes de subir:</b> confirmar a base legal do upload (LGPD). Lead que preencheu formulário próprio de interesse comercial passa. Lista comprada, importada de terceiro ou raspada, não — e o risco não compensa.</div>
@@ -779,18 +820,21 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
         <h4>“O erro que custa entre R$ 200 e R$ 800 mil”</h4>
         <p>Abre com <b>número</b>, não com promessa. Fala com quem já está pesquisando franquia e sente medo de errar.</p>
         <p>É o ângulo que a própria página já usa — só que enterrado no meio do texto, onde ninguém chega.</p>
+        <p><b>Gancho:</b> “Se você está pensando em comprar uma franquia este ano, existe um número que você precisa ver antes.”</p>
       </div>
       <div class="card">
         <div class="ct">Ângulo 2 · Autoridade e bastidor</div>
         <h4>Você dentro de uma unidade, falando de um número real</h4>
         <p>Faturamento, ponto de equilíbrio, o que deu errado na primeira unidade.</p>
         <p>É o único ângulo que <b>nenhum concorrente consegue copiar</b> — porque exige ter construído a rede.</p>
+        <p><b>Gancho:</b> “Esta unidade fatura X por mês. Vou te mostrar quanto sobra — e quanto demorou para sobrar.”</p>
       </div>
       <div class="card teal">
         <div class="ct">Ângulo 3 · Contraintuitivo</div>
         <h4>“Não compre a minha franquia antes de fazer isto”</h4>
         <p>CTR alto e resolve a objeção do conflito de interesse <b>na primeira linha</b>, antes que ela vire desconfiança.</p>
         <p>Tende a ser o criativo campeão. Vale ter três variações dele desde o primeiro dia.</p>
+        <p><b>Gancho:</b> “Sou franqueadora. E mesmo assim vou te ensinar a reprovar a minha franquia.”</p>
       </div>
     </div>
     <div class="note"><b>Formato dominante:</b> você falando em câmera, vertical, sem motion e sem locução de terceiro. O ativo é o seu rosto e o seu histórico — não o design. <b>6 a 8 peças no ar ao mesmo tempo</b>, trocando as duas piores a cada semana. Os destaques <b>Matriz FRANQ®</b>, <b>Papo Franquia</b> e <b>#ABF</b> já contêm material bruto para as primeiras quatro.</div>
@@ -808,18 +852,21 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
         <h4>Abaixo de R$ 200 por compra</h4>
         <p><b>Escalar.</b> O front se paga, a originação sai de graça e o único limite passa a ser a capacidade do comercial de atender.</p>
         <p>Subir orçamento em <b>20% a cada dois dias</b>, sem trocar criativo no mesmo intervalo.</p>
+        <p><b>Na prática:</b> ligar remarketing e retenção, e avisar o comercial antes — o volume de aplicação sobe junto.</p>
       </div>
       <div class="card nu2">
         <div class="ct">Cenário amarelo</div>
         <h4>Entre R$ 200 e R$ 350</h4>
         <p><b>Não escalar.</b> O problema é a página, não o tráfego.</p>
         <p>Corrigir prova, garantia e bloco de oferta antes de subir um real. Escalar aqui só multiplica o vazamento.</p>
+        <p><b>Na prática:</b> manter o orçamento congelado por mais 14 dias e testar uma versão da página com VSL no topo.</p>
       </div>
       <div class="card terra">
         <div class="ct">Cenário vermelho</div>
         <h4>Acima de R$ 350</h4>
         <p><b>Parar.</b> O problema não é mídia — é oferta ou público.</p>
         <p>Voltar ao slide 14, revisar preço e promessa, e retestar com um novo ângulo antes de reinvestir.</p>
+        <p><b>Na prática:</b> pausar a aquisição fria, manter só a reativação da lista e refazer a oferta antes de gastar mais.</p>
       </div>
     </div>
     <div class="note"><b>A métrica de sucesso do Trilho A não é venda de treinamento.</b> É <b>aplicação de franquia qualificada</b> — capital declarado igual ou superior a R$ 480 mil. Meta inicial realista: <b>15 a 25 aplicações por mês</b>. O custo por compra é apenas o indicador que diz se o caminho até lá está saudável.</div>
@@ -920,18 +967,21 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
         <p>Nesta ordem, deliberadamente:</p>
         <ul><li><b>Quero ser franqueada ODARA</b></li><li><b>Quero aprender a escolher uma franquia</b></li><li><b>ORIGEM®</b></li></ul>
         <p>O visitante escolhe o próprio trilho e você para de mandar investidor para uma página de bem-estar.</p>
+        <p>Cada destino com <b>UTM próprio</b>, para que o relatório mostre qual dos três a bio realmente alimenta.</p>
       </div>
       <div class="card">
         <div class="ct">Ação 2 · A bio</div>
         <h4>Tirar “Infoprodutora”</h4>
         <p>Não agrega nada ao público de R$ 480 mil e dilui a percepção de franqueadora — que é o ativo mais raro que você tem.</p>
         <p>O que fica: <b>founder, franqueadora, expansão</b>. O infoproduto aparece no link, não no cargo.</p>
+        <p>A primeira linha da bio é lida por <b>todo investidor</b> que pesquisa a ODARA antes de assinar. Ela tem que sustentar um contrato de R$ 480 mil.</p>
       </div>
       <div class="card nu2">
         <div class="ct">Ação 3 · Os destaques</div>
         <h4>O melhor acervo está parado</h4>
         <p><b>Matriz FRANQ®</b>, <b>Papo Franquia</b>, <b>#ABF</b> e <b>Imersão Odara</b> já são conteúdo de autoridade pronto.</p>
         <p>Viram criativo de anúncio com corte e legenda — <b>sem gravar nada novo</b>. É a forma mais rápida de ter as primeiras peças no ar.</p>
+        <p>Também vale reordenar os destaques: os quatro de negócio <b>na frente</b>, para quem abre o perfil vindo de um anúncio de franquia.</p>
       </div>
     </div>
     <div class="note">Os dois públicos convivem no mesmo perfil sem problema — desde que o <b>link separe</b> o que o feed mistura. É o link da bio que faz a triagem, não o conteúdo.</div>
@@ -943,6 +993,7 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
   <h2 class="t sm">Plano de 90 dias.</h2>
   <div class="rule"></div>
   <div class="body-wrap">
+    <div class="lead" style="margin-bottom:14px">Três fases sequenciais, não paralelas. A Fase 1 <strong>não gera venda nenhuma</strong> — ela constrói o encanamento que faz as outras duas valerem a pena. É a fase que todo mundo pula, e é por isso que a maioria das operações de tráfego não constrói ativo.</div>
     <div class="fase gr" style="margin-bottom:14px">
       <div class="fase-c">
         <div class="fh">Fase 1 · Dias 1 a 15</div>
@@ -953,8 +1004,11 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
           <li>Corrigir o CTA “minha clínica”, prova, garantia e FAQ</li>
           <li>Pixel e <b>CAPI</b> com eventos separados por trilho</li>
           <li>Novo preço e <b>order bump</b> no Kiwify</li>
+          <li>Hub de link na bio com <b>três destinos</b></li>
+          <li>Ferramenta de e-mail e automação configuradas</li>
           <li>Auditoria de 90 dias do comercial</li>
         </ul>
+        <div class="fend"><b>ENTREGÁVEL —</b> os dois funis capturando contato e a ponte para a franquia no ar.</div>
       </div>
       <div class="fase-c">
         <div class="fh">Fase 2 · Dias 16 a 45</div>
@@ -966,7 +1020,10 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
           <li>Bifurcação e encurtamento do funil ORIGEM</li>
           <li><b>Corte de decisão no dia 14</b> de veiculação</li>
           <li>Régua de 7 dias para comprador do treinamento</li>
+          <li>Remover urgência falsa e aplicar delay no botão</li>
+          <li>Relatório semanal de custo por compra</li>
         </ul>
+        <div class="fend"><b>ENTREGÁVEL —</b> um custo por compra confiável e a decisão do slide 18 tomada com dado, não com opinião.</div>
       </div>
       <div class="fase-c">
         <div class="fh">Fase 3 · Dias 46 a 90</div>
@@ -978,7 +1035,10 @@ body{ font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif; back
           <li>SLA comercial rodando com <b>origem marcada</b></li>
           <li>Primeiro relatório de <b>custo por aplicação</b></li>
           <li>Decisão sobre escalar o Trilho B com a lista já formada</li>
+          <li>Dois novos ângulos criativos testados por mês</li>
+          <li>Roteiro comercial revisto com as objeções reais</li>
         </ul>
+        <div class="fend"><b>ENTREGÁVEL —</b> custo por aplicação medido e a operação pronta para receber orçamento maior.</div>
       </div>
     </div>
     <div class="note"><b>A ordem não é negociável.</b> A Fase 2 sem a Fase 1 concluída gasta orçamento construindo nada — e a Fase 3 sem o corte da Fase 2 escala um funil que ainda não provou que funciona.</div>
